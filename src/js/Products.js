@@ -126,7 +126,7 @@ class Products {
                        href="/"
                      >
                         <img
-                          src="./src/assets/img/products/${this.sanitize(product.images)}"
+                          src="img/products/${this.sanitize(product.images)}"
                           alt="${this.sanitize(product.alt)}"
                           width="285"
                           height="301"
