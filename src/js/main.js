@@ -1,7 +1,7 @@
 import '../styles/main.scss';
 import {DropdownCollection} from "./Dropdown.js";
 import {SearchCollection} from "./Search.js";
-import {BurgerButton} from "./BurgerButton";
+import {BurgerButton} from "./BurgerButton.js";
 import {SubscribeFormCollection} from "./SubscribeForm.js";
 import {PopupCollection} from "./Popup.js";
 import {SliderCollection} from "./Slider.js";
