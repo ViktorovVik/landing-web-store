@@ -1,0 +1,69 @@
+@use '../helpers' as *;
+
+.main-slider {
+  padding-top: 177px;
+  background-color: var(--color-light-bg-alt);
+
+  @include tablet {
+    padding-top: 120px;
+  }
+
+  &__inner {
+    position: relative;
+
+    @include tablet-above {
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 375px;
+        width: 100vw;
+        height: 100%;
+        background: #f9f1e7;
+      }
+    }
+  }
+
+  &__body {
+    position: relative;
+    z-index: 2;
+
+
+    @include tablet-above {
+      display: flex;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 5;
+    flex: 0 0 calc((494/1240) * 100%);
+    padding: fluid(60, 15);
+    margin-bottom: fluid(80, 30);
+    align-self: flex-start;
+    margin: 0 -15px;
+
+    @include mobile-above {
+      background: rgba(255, 255, 255, 0.9);
+      @supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(31px);
+
+      }
+    }
+
+    &-title {
+      &:not(:last-child) {
+        margin-bottom: 16px;
+      }
+    }
+
+    &-text {
+      color: var(--color-gray-3);
+      font-size: 20px;
+      &:not(:last-child) {
+        margin-bottom: fluid-to-laptop(48, 30);
+      }
+    }
+  }
+}

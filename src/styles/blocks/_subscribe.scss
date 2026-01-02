@@ -1,0 +1,79 @@
+@use '../helpers' as *;
+
+.subscribe {
+
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__form {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
+    border: none;
+    background-color: var(--color-light-bg);
+    padding-inline: 10px;
+    height: 45px;
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+
+    &.is-invalid {
+      border-color: var(--color-error);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    @include mobile-above {
+      width: 242px;
+    }
+  }
+
+  &__button {
+    @include square(45px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill: var(--color-white);
+    background-color: var(--color-primary);
+
+    @include hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      background-color: var(--color-green-accents);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    &.is-loading {
+      svg {
+        opacity: 0;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border: 2px solid var(--color-white);
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 0.6s linear infinite;
+      }
+    }
+  }
+}

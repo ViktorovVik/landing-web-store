@@ -1,0 +1,49 @@
+@use '../helpers' as *;
+
+.actions-product {
+
+  @media (any-hover: none) {
+    &__link {
+      color: var(--color-gray-1);
+    }
+    &__button {
+      border: 1px solid var(--color-primary);
+      color: var(--color-primary);
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__button {
+    flex: 1 1 100%;
+    justify-content: center;
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+    font-weight: 600;
+    flex-direction: row-reverse;
+    color: var(--color-white);
+
+    @media (any-hover: hover) {
+      color: var(--color-white);
+    }
+
+    @media (any-hover: none) {
+      color: var(--color-gray-1);
+    }
+
+    @include hover {
+      color: var(--color-primary);
+    }
+  }
+}

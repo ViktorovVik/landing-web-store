@@ -1,0 +1,73 @@
+@use '../helpers' as *;
+
+.slider-tips {
+  position: relative;
+  margin-inline: fluid(-32, -15);
+  padding: fluid(32, 15);
+
+
+  &__list {
+    width: 391px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow var(--transition-duration);
+
+
+    @include hover {
+      box-shadow: 0 0 32px rgba(97, 97, 97, 0.2);
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    flex: 1 1 auto;
+    align-items: flex-start;
+  }
+
+  &__title {
+    flex: 1 1 auto;
+    &:not(:last-cgild) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__time {
+    font-size: 14px;
+    color: var(--color-gray-3);
+  }
+
+  &__dots {
+    justify-content: center;
+  }
+
+  &__arrows {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    left: 24px;
+    width: calc(100% - 48px);
+    transform: translate(0, -50%);
+    z-index: 5;
+
+    @include tablet-above {
+      left: 0;
+      width: calc(96% + 48px);
+    }
+
+    @include mobile-s {
+      display: none;
+    }
+  }
+}

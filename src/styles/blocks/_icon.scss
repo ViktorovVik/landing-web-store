@@ -1,0 +1,82 @@
+@use '../helpers' as *;
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0;
+
+  &--with-text {
+    column-gap: 8px;
+  }
+
+
+  &::after {
+    --size: 20px;
+
+    @include square(var(--size));
+
+    content: '';
+    flex-shrink: 0;
+    mask-position: center;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    background-color: currentColor;
+    transition: transform var(--transition-duration, 0.3s),
+    filter var(--transition-duration, 0.3s);
+  }
+
+  &:hover {
+    color: var(--color-green-accents);
+  }
+
+  &--arrow-down {
+    --sizeArrowDown: 16px;
+    --icon-gap: 4px;
+
+    &::after {
+      @include square(var(--sizeArrowDown));
+      mask-image: url('../../icons/arrow-down.svg');
+    }
+
+
+
+    &[aria-expanded="true"]::after {
+      transform: rotate(180deg);
+    }
+
+  }
+
+  &--search {
+
+    &::after {
+      mask-image: url('../../icons/search.svg');
+    }
+
+
+  }
+
+  &--favorite {
+    &::after {
+      mask-image: url('../../icons/favorite.svg');
+    }
+  }
+
+  &--cart {
+    &::after {
+      mask-image: url('../../icons/cart.svg');
+    }
+  }
+
+  &--arrow-link {
+    &::after {
+      mask-image: url('../../icons/arrow-link.svg');
+    }
+  }
+
+  &--share {
+    &::after {
+      mask-image: url('../../icons/share.svg');
+    }
+  }
+}

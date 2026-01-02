@@ -1,0 +1,65 @@
+@use '../helpers' as *;
+
+.furniture {
+  padding-bottom: fluid(104, 40);
+
+  &__header  {
+    text-align: center;
+  }
+
+  &__label {
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--color-gray-2);
+    margin-bottom: 8px;
+  }
+
+  &__body {
+    position: relative;
+    overflow: hidden;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (any-hover: none) {
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: auto max-content auto;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__item {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 0 -8px;
+
+    &:first-child {
+      justify-content: flex-end;
+    }
+  }
+
+  &__row {
+    display: grid;
+    padding: 0 8px;
+    gap: 16px;
+    grid-template-columns: auto;
+    grid-auto-flow: column;
+
+    &:not(:last-child) {
+      margin: 0 0 16px 0;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@use '../helpers' as *;
+
+.form-error {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  color: var(--color-error);
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+
+  &:not(:empty) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,142 @@
+@use './helpers' as *;
+
+*,
+::before,
+::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+
+html,
+body {
+   height: 100%;
+}
+
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+   font-family: var(--font-family);
+   color: var(--color-gray-1);
+   background-color: var(--color-white);
+   min-height: 100%;
+   font-size: 16px;
+
+
+   &.is-lock {
+      overflow: hidden
+   }
+
+
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: var(--color-gray-1);
+  font-weight: 700;
+  line-height: 1.2;
+
+}
+
+
+.h1 {
+
+  font-size: fluid-to-laptop(56, 40);
+}
+
+.h2 {
+  font-size: fluid-to-laptop(40, 28);
+
+}
+
+.h3 {
+  font-size: fluid-to-laptop(28, 18);
+  color: var(--color-black);
+}
+
+.h4 {
+  font-size: fluid-to-laptop(24, 16);
+  font-weight: 600;
+}
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+   transition-duration: var(--transition-duration);
+}
+
+a {
+   color: inherit;
+   margin: 0;
+   padding: 0;
+
+  
+   &:hover {
+      color: var(--color-green-accents);
+   }
+   &[class] {
+      text-decoration: none;
+   }
+}
+
+:focus-visible {
+   outline: 2px dashed var(--color-primary);
+   outline-offset: 4px;
+   transition-duration: 0s !important;
+}
+
+a, 
+button {
+   border: none;
+   background: transparent;
+   &[aria-label] {
+//         position: relative;
+         &::before {
+
+            content: '';
+      }
+   }
+}
+
+section {
+   scroll-margin-top: 100px;
+}
+
+img,
+ video {
+   display: block;
+   max-width: 100%;
+   height: auto;
+}
+
+ button,
+ label {
+   cursor: pointer;
+}
+
+ul {
+   list-style-type: none;
+}
+
+.none {
+  display: none !important;
+}

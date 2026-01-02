@@ -1,0 +1,190 @@
+@use '../helpers' as *;
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex: 1 1 auto;
+  min-width: 0;
+
+
+  @include tablet-above {
+    padding-left: 32px;
+  }
+
+  @include tablet {
+    flex-direction: column-reverse;
+    row-gap: 16px;
+
+    overflow: hidden;
+  }
+
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    margin-bottom: 20px;
+
+
+    &-dots {
+      flex: 1 1 auto ;
+
+      @include tablet {
+        justify-content: center;
+      }
+    }
+
+    &-arrows {
+      display: grid;
+      grid-template-columns: repeat(2, 48px);
+      column-gap: 8px;
+      pointer-events: auto;
+
+      @include tablet {
+        display: none;
+      }
+
+      &-button {
+        @include square(48px);
+
+        justify-content: center;
+        border-radius: 50%;
+        background-color: rgba(232, 159, 113, 0.3);
+        color: var(--color-primary);
+
+
+        &--prev {
+          transform: rotate(90deg);
+        }
+
+        &--next {
+          transform: rotate(-90deg);
+        }
+
+        @include hover {
+            color: var(--color-white);
+            background-color: rgba(232, 159, 113, 1);
+        }
+
+        &--white {
+          box-shadow: 0 4px 14px 1px rgba(0, 0, 0, 0.16);
+          background-color: var(--color-white);
+
+          @include hover {
+              color: var(--color-white);
+              background-color: var(--color-primary);
+          }
+        }
+      }
+    }
+  }
+
+  &__body {
+    overflow: hidden;
+    width: 100%;
+
+    @include tablet-above {
+      min-width: 934px;
+      margin-inline: unset;
+    }
+  }
+
+
+  &__img {
+    object-fit: contain;
+  }
+
+  &__content {
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: fluid-to-laptop(24, 15);
+    min-width: 200px;
+    max-height: 300px;
+    overflow: auto;
+
+    @supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(31px);
+    }
+
+    @include mobile-above {
+      position: absolute;
+      min-width: 350px;
+      bottom: 40px;
+      right: 40px;
+    }
+
+    &-title {
+      color: var(--color-gray-1);
+      margin-bottom: 4px;
+    }
+
+    &-text {
+      margin-bottom: 8px;
+    }
+
+    &-price {
+      display: flex;
+      justify-content: space-between;
+      column-gap: 8px;
+    }
+  }
+}
+
+.swiper-pagination-bullets {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.swiper-pagination-bullet {
+  @include square(27px);
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2px;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-right: 12px;
+  }
+
+  &::after {
+    content: '';
+
+    @include square(11px);
+
+    background-color: var(--color-gray-5);
+    border-radius: 50%;
+    transition: background-color var(--transition-duration);
+  }
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    inset: unset;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid var(--color-primary);
+    transform: scale(0);
+    transition: transform .3s ease 0s;
+  }
+}
+
+.swiper-pagination-bullet-active {
+
+  &::after {
+    background-color: var(--color-primary);
+  }
+
+  &::before {
+    transform: scale(1);
+  }
+}

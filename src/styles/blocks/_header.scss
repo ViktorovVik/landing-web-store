@@ -1,0 +1,44 @@
+@use '../helpers' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-light-bg-alt);
+  width: 100%;
+  padding-block: 66px;
+  animation: scrolling-header linear both;
+  animation-timeline: scroll();
+  animation-range: 0 200px;
+
+  @include tablet {
+    padding-block: 30px;
+    animation: none;
+  }
+
+  @keyframes scrolling-header {
+    to {
+      padding-block: 30px;
+      box-shadow: 0 0 1rem #3a3a3a;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: fluid-to-laptop(41, 15);
+
+    @include tablet-above {
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 39.8%;
+        width: 100vw;
+        height: 100%;
+        background: #f9f1e7;
+      }
+    }
+  }
+}

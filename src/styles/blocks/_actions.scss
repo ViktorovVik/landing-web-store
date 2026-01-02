@@ -1,0 +1,17 @@
+@use '../helpers' as *;
+
+.actions {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  column-gap: fluid-to-laptop(32, 20);
+
+  &__user {
+    flex-shrink: 0;
+
+    &-img {
+      border-radius: 50%;
+    }
+  }
+}

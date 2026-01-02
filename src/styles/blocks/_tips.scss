@@ -1,0 +1,11 @@
+@use '../helpers' as *;
+
+.tips {
+  padding-block: fluid-to-laptop(44, 30);
+  background-color: var(--color-white);
+
+  &__title {
+    text-align: center;
+  }
+
+}

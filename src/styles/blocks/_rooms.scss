@@ -1,0 +1,74 @@
+@use '../helpers' as *;
+
+.rooms {
+  padding-block: fluid-to-laptop(44, 30);
+  background-color: var(--color-light-bg-alt);
+  overflow-x: hidden;
+
+  &__inner {
+
+    @include tablet-above {
+      display: flex;
+    }
+  }
+
+  &__body {
+    flex: 0 0 calc((465 / 1240) * 100%);
+    position: relative;
+    z-index: 5;
+    align-self: center;
+
+    @include tablet-above {
+      padding-right: fluid-to-laptop(80, 30);
+    }
+
+    @include tablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+    text-align: left;
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--color-gray-2);
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__button {
+    min-width: 180px;
+    justify-content: center;
+
+    @include hover {
+      color: var(--color-gray-2);
+      background-color: var(--color-gray-5);
+    }
+  }
+
+  &__slider {
+    flex: 1 1 auto;
+    min-width: 0;
+    align-self: flex-start;
+
+    @include tablet {
+      margin-right: calc((100vw - 100%) / -2);
+    }
+
+    @include tablet-above {
+      margin-right: 0;
+    }
+
+    @include mobile-s {
+      margin-inline: calc((100vw - 100%) / -3);
+    }
+  }
+}

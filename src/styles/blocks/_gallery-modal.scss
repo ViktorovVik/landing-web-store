@@ -1,0 +1,142 @@
+@use '../helpers' as *;
+
+.gallery-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+  }
+
+  &__image-wrapper {
+    position: relative;
+    pointer-events: auto;
+  }
+
+  &__image {
+    max-width: 80vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: block;
+  }
+
+  &__counter {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    pointer-events: none;
+  }
+
+  &__close,
+  &__nav {
+    pointer-events: auto;
+    z-index: 10;
+  }
+
+  &__close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 45px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 10px;
+    transition: transform 0.2s;
+    z-index: 100;
+
+    @include hover {
+      transform: scale(1.1);
+    }
+
+    @include mobile {
+      top: 15px;
+      right: 15px;
+      font-size: 35px;
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    font-size: 50px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, opacity 0.2s;
+    user-select: none;
+
+    @include hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    &--prev {
+      left: 30px;
+    }
+
+    &--next {
+      right: 30px;
+    }
+
+    @include mobile {
+      width: 50px;
+      height: 50px;
+      font-size: 30px;
+      background: none;
+
+      &--prev { left: 5px; }
+      &--next { right: 5px; }
+    }
+  }
+}

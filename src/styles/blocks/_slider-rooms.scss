@@ -1,0 +1,107 @@
+@use '../helpers' as *;
+
+.slider-rooms {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-light-bg-alt);
+    z-index: 2;
+    transform: translate(-100%, 0px);
+  }
+  overflow: visible;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    position: relative;
+    overflow: hidden;
+    width: 372px;
+    min-height: fluid(500, 400);
+    height: 0;
+
+    &.swiper-slide-active {
+      .slider-rooms__img {
+        height: 100%;
+      }
+    }
+
+    @include mobile-s {
+      width: 100%;
+    }
+  }
+
+  &__img {
+    transition: height 0.8s ease 0s;
+    height: 100%;
+
+    @include mobile-above {
+      height: 83%;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    left: fluid-to-laptop(24, 15);
+    bottom: fluid-to-laptop(24, 15);
+    padding: fluid-to-laptop(32, 15);
+    color: inherit;
+    max-width: 240px;
+    background: rgba(255, 255, 255, 0.9);
+
+    @supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(31px);
+    }
+
+  }
+
+  &__button {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(100%, 0px);
+    background: var(--color-primary);
+    padding: 12px;
+    color: var(--color-white);
+  }
+
+  &__arrows {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    left: 24px;
+    width: calc(100% - 48px);
+    transform: translate(0, -50%);
+    z-index: 5;
+
+    @include tablet-above {
+      left: -24px;
+      width: calc(95% + 48px);
+    }
+  }
+
+  &__dots {
+    @include mobile-above {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      left: 396px;
+    }
+
+    @include mobile {
+      justify-content: center;
+      margin-top: 30px;
+    }
+  }
+}

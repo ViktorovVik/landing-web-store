@@ -1,0 +1,81 @@
+@use '../helpers' as *;
+
+.menu {
+
+  @include mobile {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    padding: 100px 15px 15px 15px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--color-light-bg-alt);
+    transition: left 0.3s ease 0s;
+
+    &::before {
+      content: '';
+      position: fixed;
+      width: 100%;
+      height: 100px;
+      top: 0;
+      left: -100%;
+      z-index: 2;
+      background-color: #fcf8f3;
+    }
+
+    &.is-active {
+      left: 0;
+      &::before {
+        left: 0;
+      }
+    }
+  }
+
+  &__list {
+
+    @include mobile-above {
+      display: flex;
+      column-gap: fluid-to-laptop(40, 25);
+      align-items: center;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 5px 0;
+    position: relative;
+
+    @media (any-hover: hover) {
+        .dropdown {
+          transform: translate(0, 0);
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+
+        .icon--arrow-down::after {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
+
+  &__button {
+    color: var(--color-gray-1);
+
+    @include hover {
+      transition-duration: var(--transition-duration);
+      color: var(--color-green-accents);
+
+      .icon--arrow-down {
+        margin: 0 0 0 8px;
+        transition-duration: var(--transition-duration);
+      }
+    }
+  }
+}

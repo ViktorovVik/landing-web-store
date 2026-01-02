@@ -1,0 +1,57 @@
+@use '../helpers' as *;
+
+
+.row-furniture {
+
+  &--left-top {
+    justify-content: end;
+    align-items: end;
+  }
+
+  &--left-bottom {
+    justify-content: end;
+    align-items: start;
+  }
+
+  &--center {
+    display: block;
+  }
+
+  &--right-top {
+    align-items: end;
+  }
+
+  &--right-bottom {
+    align-items: start;
+  }
+
+  &__list {
+
+  }
+
+  &__item {
+
+  }
+
+  &__link {
+    @include hover {
+      .row-furniture__img {
+        filter: grayscale(0)
+      }
+    }
+  }
+
+  &__img {
+    width: auto;
+    max-width: none;
+    transition: filter var(--transition-duration);
+
+    @media (any-hover: none) {
+      filter: grayscale(0);
+    }
+
+    @media (any-hover: hover) {
+      filter: grayscale(1);
+    }
+  }
+}

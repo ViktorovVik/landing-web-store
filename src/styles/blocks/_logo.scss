@@ -1,0 +1,9 @@
+@use '../helpers' as *;
+
+.logo {
+  position: relative;
+  z-index: 5;
+  flex-shrink: 0;
+  height: auto;
+  max-width: 100%;
+}

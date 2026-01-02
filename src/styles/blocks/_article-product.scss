@@ -1,0 +1,134 @@
+@use '../helpers' as *;
+
+.article-product {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-light-bg);
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+
+  @include hover {
+    .article-product__actions {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  @media (any-hover: none) {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+  }
+
+
+  &__labels {
+    position: absolute;
+    right: fluid(24, 15);
+    top: fluid(24, 15);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    @include square(48px);
+
+    flex: 0 0 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-white);
+    font-weight: 500;
+
+    &:not(:last-child) {
+      margin: 0 0 10px 0;
+    }
+
+    &--sale {
+      background-color: var(--color-red-accents);
+    }
+
+    &--new {
+      background-color: var(--color-green-accents);
+    }
+  }
+
+  &__img {
+    img {
+      width: 100%;
+    }
+  }
+
+  &__body {
+    flex: 1 1 auto;
+    padding: 16px 16px 30px 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+  }
+
+  &__title {
+    font-weight: 600;
+    color: var(--color-gray-1);
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: var(--color-gray-3);
+  }
+
+  &__prices {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 16px;
+  }
+
+  &__price {
+    font-size: 20px;
+
+    &--old {
+      font-size: 16px;
+
+      text-decoration: line-through;
+      color: var(--color-gray-4);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: fluid-to-laptop(40, 15);
+    transition-duration: var(--transition-duration);
+    width: 100%;
+
+    @media (any-hover: hover) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(58, 58, 58, 0.74);
+      z-index: 3;
+    }
+
+    @media (any-hover: none) {
+      margin-top: 16px;
+    }
+  }
+}
