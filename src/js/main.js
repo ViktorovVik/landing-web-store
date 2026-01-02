@@ -1,14 +1,14 @@
 import '../styles/main.scss';
-import {DropdownCollection} from "./Dropdown";
-import {SearchCollection} from "./Search";
+import {DropdownCollection} from "./Dropdown.js";
+import {SearchCollection} from "./Search.js";
 import {BurgerButton} from "./BurgerButton";
-import {SubscribeFormCollection} from "./SubscribeForm";
-import {PopupCollection} from "./Popup";
-import {SliderCollection} from "./Slider";
-import {ProductsCollection} from "./Products";
-import {CartCollection} from "./Cart";
-import {GalleryCollection} from "./Gallery";
-import {GalleryScrollCollection} from "./GalleryScroll";
+import {SubscribeFormCollection} from "./SubscribeForm.js";
+import {PopupCollection} from "./Popup.js";
+import {SliderCollection} from "./Slider.js";
+import {ProductsCollection} from "./Products.js";
+import {CartCollection} from "./Cart.js";
+import {GalleryCollection} from "./Gallery.js";
+import {GalleryScrollCollection} from "./GalleryScroll.js";
 
 new DropdownCollection();
 new SearchCollection();
