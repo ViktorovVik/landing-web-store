@@ -1,4 +1,3 @@
-import 'swiper/css';
 import '../styles/main.scss';
 import {DropdownCollection} from "./Dropdown";
 import {SearchCollection} from "./Search";
@@ -10,9 +9,6 @@ import {ProductsCollection} from "./Products";
 import {CartCollection} from "./Cart";
 import {GalleryCollection} from "./Gallery";
 import {GalleryScrollCollection} from "./GalleryScroll";
-
-
-
 
 new DropdownCollection();
 new SearchCollection();
