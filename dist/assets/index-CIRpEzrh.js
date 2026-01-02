@@ -9,7 +9,7 @@
                        href="/"
                      >
                         <img
-                          src="./src/assets/img/products/${this.sanitize(t.images)}"
+                          src="img/products/${this.sanitize(t.images)}"
                           alt="${this.sanitize(t.alt)}"
                           width="285"
                           height="301"
