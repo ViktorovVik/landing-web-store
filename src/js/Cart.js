@@ -119,7 +119,7 @@ class Cart {
                  href="/"
                      >
                       <img
-                        src="./src/assets/img/products/${images}"
+                        src="img/products/${images}"
                         alt="${alt}"
                         width=""
                         height=""
